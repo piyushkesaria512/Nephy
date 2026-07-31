@@ -1,0 +1,210 @@
+/* =========================================================
+   MAIN APPLICATION LAYOUT
+   ========================================================= */
+
+.app-layout {
+  display: grid;
+
+  grid-template-columns:
+    var(--sidebar-width)
+    minmax(0, 1fr)
+    var(--right-sidebar-width);
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    var(--background);
+
+  transition:
+    grid-template-columns var(--transition-medium);
+}
+
+
+/* =========================================================
+   LEFT SIDEBAR
+   ========================================================= */
+
+.app-sidebar {
+  position: relative;
+
+  width: var(--sidebar-width);
+
+  min-height: 100vh;
+
+  z-index: var(--z-sidebar);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+
+  min-height: 100vh;
+
+  padding:
+    var(--space-6);
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAGE CONTAINER
+   ========================================================= */
+
+.page-container {
+  width: 100%;
+
+  max-width:
+    var(--content-max-width);
+
+  margin:
+    0 auto;
+}
+
+
+/* =========================================================
+   RIGHT SIDEBAR
+   ========================================================= */
+
+.app-right-sidebar {
+  position: relative;
+
+  width: var(--right-sidebar-width);
+
+  min-height: 100vh;
+
+  padding:
+    var(--space-6)
+    var(--space-5)
+    var(--space-6)
+    0;
+
+  z-index: var(--z-sidebar);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+.app-mobile-navigation {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1023px) {
+
+  .app-layout {
+    grid-template-columns:
+      var(--sidebar-collapsed-width)
+      minmax(0, 1fr);
+  }
+
+
+  .app-sidebar {
+    width: var(--sidebar-collapsed-width);
+  }
+
+
+  .app-right-sidebar {
+    display: none;
+  }
+
+
+  .main-content {
+    padding:
+      var(--space-5);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .app-layout {
+    display: block;
+
+    min-height: 100vh;
+  }
+
+
+  .app-sidebar {
+    display: none;
+  }
+
+
+  .app-right-sidebar {
+    display: none;
+  }
+
+
+  .main-content {
+    width: 100%;
+
+    min-height: calc(100vh - 68px);
+
+    padding:
+      var(--space-3)
+      var(--space-2)
+      90px;
+  }
+
+
+  .page-container {
+    width: 100%;
+
+    max-width: none;
+  }
+
+
+  .app-mobile-navigation {
+    display: block;
+
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    height:
+      var(--mobile-bottom-bar-height, 68px);
+
+    z-index:
+      var(--z-header);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .main-content {
+    padding:
+      var(--space-2)
+      0
+      82px;
+  }
+
+}

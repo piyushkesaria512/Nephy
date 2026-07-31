@@ -1,0 +1,1134 @@
+/* =========================================
+   FEED CONTAINER
+========================================= */
+
+.feed {
+  width: 100%;
+}
+
+
+/* =========================================
+   FEED HEADER
+========================================= */
+
+.feed-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.feed-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.feed-title-icon {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(108, 77, 255, 0.15),
+      rgba(0, 230, 195, 0.08)
+    );
+
+  color: #8977ff;
+
+  font-size: 12px;
+}
+
+.feed-title h2 {
+  margin: 0;
+
+  color: #f2f4f8;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.feed-title span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #596577;
+
+  font-size: 7px;
+}
+
+
+/* =========================================
+   HEADER ACTIONS
+========================================= */
+
+.feed-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.feed-refresh-btn,
+.feed-filter-btn {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #252d3d;
+
+  border-radius: 7px;
+
+  background: #111621;
+
+  color: #6f7b8d;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.feed-refresh-btn:hover,
+.feed-filter-btn:hover {
+  border-color: #6c4dff;
+
+  background: #171c2b;
+
+  color: #ffffff;
+}
+
+.feed-refresh-btn svg,
+.feed-filter-btn svg {
+  font-size: 11px;
+}
+
+.is-refreshing {
+  animation: feed-refresh 0.8s linear infinite;
+}
+
+@keyframes feed-refresh {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   FEED TABS
+========================================= */
+
+.feed-tabs {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 4px;
+
+  margin-bottom: 12px;
+
+  border: 1px solid #202736;
+
+  border-radius: 9px;
+
+  background: #10151f;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.feed-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.feed-tabs button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  min-height: 27px;
+
+  padding: 0 11px;
+
+  border: 0;
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: #657184;
+
+  font-family: inherit;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.feed-tabs button svg {
+  font-size: 9px;
+}
+
+.feed-tabs button:hover {
+  color: #b8c0cd;
+}
+
+.feed-tabs button.active {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(108, 77, 255, 0.2),
+      rgba(108, 77, 255, 0.08)
+    );
+
+  color: #9d8dff;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(108, 77, 255, 0.12);
+}
+
+.feed-tabs .feed-sort {
+  margin-left: auto;
+
+  color: #798597;
+}
+
+
+/* =========================================
+   POST
+========================================= */
+
+.feed-post {
+  width: 100%;
+
+  margin-bottom: 13px;
+
+  padding: 15px;
+
+  border: 1px solid #22293a;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #141926,
+      #111620
+    );
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.13);
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.feed-post:hover {
+  border-color: #30394d;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================
+   POST HEADER
+========================================= */
+
+.feed-post-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 11px;
+}
+
+.feed-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.feed-avatar-wrapper {
+  position: relative;
+
+  width: 34px;
+  height: 34px;
+}
+
+.feed-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid #303849;
+}
+
+.feed-verified {
+  position: absolute;
+
+  right: -2px;
+  bottom: -1px;
+
+  width: 13px;
+  height: 13px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #6c4dff;
+
+  border: 2px solid #141926;
+
+  color: #ffffff;
+
+  font-size: 6px;
+  font-weight: 900;
+}
+
+.feed-user-info {
+  min-width: 0;
+}
+
+.feed-user-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+}
+
+.feed-user-name strong {
+  max-width: 160px;
+
+  overflow: hidden;
+
+  color: #e9edf3;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.feed-verified-small {
+  width: 10px;
+  height: 10px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #6c4dff;
+
+  color: #ffffff;
+
+  font-size: 5px;
+  font-weight: 900;
+}
+
+.feed-user-meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 2px;
+
+  color: #566274;
+
+  font-size: 6.5px;
+}
+
+.feed-more {
+  padding: 4px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #667184;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.feed-more:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.feed-post-content {
+  margin-bottom: 8px;
+}
+
+.feed-caption {
+  margin: 0;
+
+  color: #b6becb;
+
+  font-size: 8px;
+
+  line-height: 1.65;
+}
+
+.feed-hashtags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-top: 6px;
+}
+
+.feed-hashtags span {
+  color: #7d6cff;
+
+  font-size: 7px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   POST TAGS
+========================================= */
+
+.feed-tags {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-bottom: 10px;
+}
+
+.feed-game-tag,
+.feed-tournament-tag,
+.feed-rank-tag {
+  padding: 4px 7px;
+
+  border-radius: 5px;
+
+  font-size: 6px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1px;
+}
+
+.feed-game-tag {
+  background: rgba(0, 230, 195, 0.07);
+
+  border: 1px solid rgba(0, 230, 195, 0.12);
+
+  color: #53d9c4;
+}
+
+.feed-tournament-tag {
+  background: rgba(108, 77, 255, 0.08);
+
+  border: 1px solid rgba(108, 77, 255, 0.15);
+
+  color: #9c8dff;
+}
+
+.feed-rank-tag {
+  background: rgba(255, 77, 141, 0.07);
+
+  border: 1px solid rgba(255, 77, 141, 0.12);
+
+  color: #ff7cab;
+}
+
+
+/* =========================================
+   MEDIA
+========================================= */
+
+.feed-media {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #0b0f17;
+}
+
+.feed-media img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.feed-post:hover .feed-media img {
+  transform: scale(1.015);
+}
+
+.feed-media-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.05),
+      transparent 60%,
+      rgba(0, 0, 0, 0.35)
+    );
+
+  pointer-events: none;
+}
+
+.feed-media-game {
+  position: absolute;
+
+  left: 10px;
+  bottom: 9px;
+
+  padding: 5px 8px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 5px;
+
+  background: rgba(10, 13, 20, 0.72);
+
+  backdrop-filter: blur(8px);
+
+  color: #dbe1ea;
+
+  font-size: 6px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.feed-stats {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 9px 2px 7px;
+
+  color: #5d697a;
+
+  font-size: 6.5px;
+}
+
+.feed-stats > div {
+  display: flex;
+
+  gap: 9px;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.feed-post-actions {
+  display: flex;
+
+  align-items: center;
+
+  border-top: 1px solid #202635;
+
+  border-bottom: 1px solid #202635;
+}
+
+.feed-action {
+  flex: 1;
+
+  min-height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #667285;
+
+  font-family: inherit;
+
+  font-size: 6.5px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.feed-action:hover {
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #c4cbd6;
+}
+
+.feed-action-icon {
+  font-size: 13px;
+
+  line-height: 1;
+}
+
+.feed-action.liked {
+  color: #ff4d8d;
+}
+
+.feed-action.liked .feed-action-icon {
+  animation: like-pop 0.3s ease;
+}
+
+.feed-action.bookmarked {
+  color: #00d8b8;
+}
+
+@keyframes like-pop {
+  0% {
+    transform: scale(0.7);
+  }
+
+  60% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================
+   COMMENT BOX
+========================================= */
+
+.feed-comment-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding-top: 9px;
+}
+
+.feed-comment-box img {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 1px solid #303849;
+}
+
+.feed-comment-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 26px;
+
+  padding: 0 9px;
+
+  border: 1px solid #252e40;
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #0e131d;
+
+  color: #d9dfe8;
+
+  font-family: inherit;
+
+  font-size: 7px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.feed-comment-box input::placeholder {
+  color: #4d596b;
+}
+
+.feed-comment-box input:focus {
+  border-color: rgba(108, 77, 255, 0.5);
+
+  box-shadow:
+    0 0 0 3px rgba(108, 77, 255, 0.06);
+}
+
+.feed-comment-box button {
+  height: 26px;
+
+  padding: 0 9px;
+
+  border: 0;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6c4dff,
+      #7658ff
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 6.5px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.feed-comment-box button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 15px rgba(108, 77, 255, 0.25);
+}
+
+
+/* =========================================
+   END OF FEED
+========================================= */
+
+.feed-end {
+  padding: 15px 0 25px;
+
+  text-align: center;
+}
+
+.feed-end-line {
+  height: 1px;
+
+  width: 100%;
+
+  margin-bottom: 12px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #252d3c,
+      transparent
+    );
+}
+
+.feed-end-content {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.feed-end-content span {
+  color: #6c4dff;
+
+  font-size: 8px;
+}
+
+.feed-end-content p {
+  margin: 0;
+
+  color: #677386;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+.feed-end small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #3f4a5b;
+
+  font-size: 6px;
+}
+
+
+/* =========================================
+   SKELETON
+========================================= */
+
+.feed-skeleton {
+  padding: 15px;
+
+  margin-bottom: 13px;
+
+  border: 1px solid #22293a;
+
+  border-radius: 15px;
+
+  background: #141926;
+
+  overflow: hidden;
+}
+
+.skeleton-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 12px;
+}
+
+.skeleton-avatar {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #202838;
+
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.skeleton-user {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.skeleton-user span {
+  width: 75px;
+  height: 7px;
+
+  border-radius: 4px;
+
+  background: #202838;
+
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.skeleton-user small {
+  width: 110px;
+  height: 5px;
+
+  border-radius: 4px;
+
+  background: #1c2432;
+
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.skeleton-text {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-bottom: 12px;
+}
+
+.skeleton-text span {
+  width: 80%;
+  height: 6px;
+
+  border-radius: 4px;
+
+  background: #202838;
+
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.skeleton-text span:nth-child(2) {
+  width: 60%;
+}
+
+.skeleton-text span:nth-child(3) {
+  width: 40%;
+}
+
+.skeleton-media {
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  border-radius: 10px;
+
+  background: #1a2230;
+
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+.skeleton-actions {
+  display: flex;
+
+  gap: 10px;
+
+  padding-top: 12px;
+}
+
+.skeleton-actions span {
+  width: 60px;
+  height: 7px;
+
+  border-radius: 4px;
+
+  background: #202838;
+
+  animation: skeleton-pulse 1.5s infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .feed-post {
+    border-radius: 13px;
+  }
+
+  .feed-tabs button {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .feed-header {
+    margin-bottom: 9px;
+  }
+
+  .feed-title-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .feed-title h2 {
+    font-size: 11px;
+  }
+
+  .feed-title span {
+    font-size: 6px;
+  }
+
+  .feed-post {
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+  }
+
+  .feed-tabs {
+    margin-bottom: 9px;
+
+    border-radius: 8px;
+  }
+
+  .feed-tabs button {
+    min-height: 25px;
+
+    padding: 0 9px;
+
+    font-size: 6.5px;
+  }
+
+  .feed-user-name strong {
+    max-width: 125px;
+
+    font-size: 7.5px;
+  }
+
+  .feed-user-meta {
+    font-size: 6px;
+  }
+
+  .feed-caption {
+    font-size: 7.5px;
+  }
+
+  .feed-hashtags span {
+    font-size: 6.5px;
+  }
+
+  .feed-game-tag,
+  .feed-tournament-tag,
+  .feed-rank-tag {
+    font-size: 5.5px;
+  }
+
+  .feed-stats {
+    font-size: 6px;
+  }
+
+  .feed-action {
+    min-height: 32px;
+
+    font-size: 6px;
+  }
+
+  .feed-action-icon {
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .feed-post {
+    padding: 10px;
+  }
+
+  .feed-action span:last-child {
+    display: none;
+  }
+
+  .feed-action-icon {
+    font-size: 14px;
+  }
+
+  .feed-comment-box button {
+    display: none;
+  }
+
+  .feed-stats > div {
+    gap: 6px;
+  }
+
+}

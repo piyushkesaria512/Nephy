@@ -1,0 +1,424 @@
+/* =========================================================
+   ESPORTS SOCIAL MEDIA
+   GLOBAL DESIGN TOKENS / CSS VARIABLES
+   ========================================================= */
+
+:root {
+
+  /* =======================================================
+     BRAND COLORS
+     ======================================================= */
+
+  --primary: #6C4DFF;
+  --primary-light: #8B73FF;
+  --primary-dark: #5035D6;
+
+  --secondary: #00E6C3;
+  --secondary-light: #45F2D8;
+  --secondary-dark: #00B89C;
+
+  --accent: #FF4D8D;
+  --accent-light: #FF73A7;
+  --accent-dark: #D93670;
+
+
+  /* =======================================================
+     BACKGROUND COLORS
+     ======================================================= */
+
+  --background: #0A0D14;
+  --background-secondary: #0D111B;
+  --background-tertiary: #101521;
+
+  --surface: #141926;
+  --surface-light: #191F2E;
+  --surface-dark: #101521;
+
+  --card: #141926;
+  --card-hover: #1A2030;
+
+  --overlay: rgba(10, 13, 20, 0.75);
+
+
+  /* =======================================================
+     BORDER COLORS
+     ======================================================= */
+
+  --border: #22293A;
+  --border-light: #2D3549;
+  --border-dark: #181E2C;
+
+  --border-primary: rgba(108, 77, 255, 0.45);
+  --border-secondary: rgba(0, 230, 195, 0.35);
+  --border-accent: rgba(255, 77, 141, 0.35);
+
+
+  /* =======================================================
+     TEXT COLORS
+     ======================================================= */
+
+  --text: #FFFFFF;
+  --text-primary: #FFFFFF;
+
+  --text-secondary: #D8DCE5;
+
+  --muted: #9AA5B5;
+  --text-muted: #9AA5B5;
+
+  --text-dark: #687386;
+
+  --text-disabled: #4D5668;
+
+
+  /* =======================================================
+     STATUS COLORS
+     ======================================================= */
+
+  --success: #00E6A8;
+  --success-dark: #00B887;
+
+  --warning: #FFB547;
+  --warning-dark: #D8901F;
+
+  --danger: #FF4D6D;
+  --danger-dark: #D93654;
+
+  --info: #4DA6FF;
+
+
+  /* =======================================================
+     ONLINE / OFFLINE
+     ======================================================= */
+
+  --online: #00E6A8;
+  --offline: #687386;
+  --busy: #FF4D6D;
+  --away: #FFB547;
+
+
+  /* =======================================================
+     GRADIENTS
+     ======================================================= */
+
+  --gradient-primary:
+    linear-gradient(
+      135deg,
+      #6C4DFF 0%,
+      #8B5CFF 50%,
+      #00E6C3 100%
+    );
+
+  --gradient-primary-reverse:
+    linear-gradient(
+      135deg,
+      #00E6C3 0%,
+      #8B5CFF 50%,
+      #6C4DFF 100%
+    );
+
+  --gradient-purple:
+    linear-gradient(
+      135deg,
+      #6C4DFF,
+      #9B6CFF
+    );
+
+  --gradient-cyan:
+    linear-gradient(
+      135deg,
+      #00E6C3,
+      #00B89C
+    );
+
+  --gradient-accent:
+    linear-gradient(
+      135deg,
+      #FF4D8D,
+      #FF6CA9
+    );
+
+  --gradient-dark:
+    linear-gradient(
+      135deg,
+      #141926,
+      #0D111B
+    );
+
+  --gradient-card:
+    linear-gradient(
+      145deg,
+      rgba(108, 77, 255, 0.08),
+      rgba(0, 230, 195, 0.03)
+    );
+
+  --gradient-glow:
+    radial-gradient(
+      circle at top right,
+      rgba(108, 77, 255, 0.18),
+      transparent 45%
+    );
+
+
+  /* =======================================================
+     GLASSMORPHISM
+     ======================================================= */
+
+  --glass-background:
+    rgba(20, 25, 38, 0.72);
+
+  --glass-background-light:
+    rgba(255, 255, 255, 0.045);
+
+  --glass-background-dark:
+    rgba(10, 13, 20, 0.78);
+
+  --glass-border:
+    rgba(255, 255, 255, 0.08);
+
+  --glass-border-light:
+    rgba(255, 255, 255, 0.12);
+
+  --glass-blur: 20px;
+
+  --glass-blur-heavy: 30px;
+
+
+  /* =======================================================
+     GLOW EFFECTS
+     ======================================================= */
+
+  --glow-primary:
+    0 0 25px rgba(108, 77, 255, 0.25);
+
+  --glow-primary-strong:
+    0 0 35px rgba(108, 77, 255, 0.40);
+
+  --glow-secondary:
+    0 0 25px rgba(0, 230, 195, 0.20);
+
+  --glow-secondary-strong:
+    0 0 35px rgba(0, 230, 195, 0.35);
+
+  --glow-accent:
+    0 0 25px rgba(255, 77, 141, 0.25);
+
+  --glow-mixed:
+    0 0 30px rgba(108, 77, 255, 0.20),
+    0 0 50px rgba(0, 230, 195, 0.08);
+
+
+  /* =======================================================
+     SHADOWS
+     ======================================================= */
+
+  --shadow-xs:
+    0 2px 8px rgba(0, 0, 0, 0.20);
+
+  --shadow-sm:
+    0 4px 15px rgba(0, 0, 0, 0.25);
+
+  --shadow-md:
+    0 8px 25px rgba(0, 0, 0, 0.30);
+
+  --shadow-lg:
+    0 15px 40px rgba(0, 0, 0, 0.35);
+
+  --shadow-xl:
+    0 25px 70px rgba(0, 0, 0, 0.45);
+
+  --shadow-primary:
+    0 10px 30px rgba(108, 77, 255, 0.20);
+
+  --shadow-secondary:
+    0 10px 30px rgba(0, 230, 195, 0.15);
+
+
+  /* =======================================================
+     TYPOGRAPHY
+     ======================================================= */
+
+  --font-primary:
+    Inter,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  --font-display:
+    Inter,
+    "Segoe UI",
+    sans-serif;
+
+  --font-mono:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+
+
+  /* Font Sizes */
+
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 28px;
+  --text-4xl: 32px;
+  --text-5xl: 40px;
+  --text-6xl: 48px;
+
+
+  /* Font Weights */
+
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+
+  /* Line Heights */
+
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+  --line-relaxed: 1.7;
+
+
+  /* =======================================================
+     SPACING
+     ======================================================= */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+
+  /* =======================================================
+     BORDER RADIUS
+     ======================================================= */
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 30px;
+
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+
+  /* =======================================================
+     LAYOUT
+     ======================================================= */
+
+  --sidebar-width: 270px;
+  --sidebar-collapsed-width: 90px;
+
+  --right-sidebar-width: 360px;
+
+  --content-max-width: 1440px;
+
+  --mobile-bottom-bar-height: 70px;
+
+  --header-height: 72px;
+
+
+  /* =======================================================
+     Z-INDEX SYSTEM
+     ======================================================= */
+
+  --z-base: 1;
+
+  --z-content: 10;
+
+  --z-sidebar: 100;
+
+  --z-header: 200;
+
+  --z-dropdown: 300;
+
+  --z-sticky: 400;
+
+  --z-overlay: 500;
+
+  --z-modal: 600;
+
+  --z-toast: 700;
+
+  --z-tooltip: 800;
+
+
+  /* =======================================================
+     TRANSITIONS
+     ======================================================= */
+
+  --transition-fast: 150ms ease;
+
+  --transition-normal: 250ms ease;
+
+  --transition-medium: 350ms ease;
+
+  --transition-slow: 500ms ease;
+
+  --transition-spring:
+    350ms cubic-bezier(0.22, 1, 0.36, 1);
+
+
+  /* =======================================================
+     ANIMATION
+     ======================================================= */
+
+  --animation-fast: 150ms;
+
+  --animation-normal: 300ms;
+
+  --animation-slow: 500ms;
+
+
+  /* =======================================================
+     COMPONENT SIZES
+     ======================================================= */
+
+  --button-height-sm: 36px;
+  --button-height-md: 44px;
+  --button-height-lg: 52px;
+
+  --input-height: 48px;
+
+  --avatar-xs: 28px;
+  --avatar-sm: 36px;
+  --avatar-md: 48px;
+  --avatar-lg: 64px;
+  --avatar-xl: 90px;
+
+
+  /* =======================================================
+     BREAKPOINTS
+     Note:
+     CSS variables cannot be used directly inside media
+     queries. These values are here for documentation.
+     Use the same values in responsive.css.
+     ======================================================= */
+
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
+  --breakpoint-desktop: 1200px;
+  --breakpoint-large: 1440px;
+}

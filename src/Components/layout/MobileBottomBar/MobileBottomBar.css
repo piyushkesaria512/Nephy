@@ -1,0 +1,389 @@
+/* =========================================================
+   MOBILE BOTTOM BAR
+   ========================================================= */
+
+.mobile-bottom-bar {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION CONTAINER
+   ========================================================= */
+
+.mobile-bottom-bar-inner {
+  position: relative;
+
+  width: 100%;
+
+  height: 68px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  padding:
+    6px 8px;
+
+  background:
+    rgba(10, 13, 20, 0.92);
+
+  border-top:
+    1px solid var(--border);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  box-shadow:
+    0 -10px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   NAV ITEM
+   ========================================================= */
+
+.mobile-bottom-item {
+  position: relative;
+
+  min-width: 58px;
+
+  height: 56px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  color: var(--muted);
+
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  transition:
+    color var(--transition-normal),
+    transform var(--transition-normal),
+    background var(--transition-normal);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.mobile-bottom-icon {
+  width: 28px;
+
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 20px;
+
+  transition:
+    transform var(--transition-normal);
+}
+
+
+.mobile-bottom-icon svg {
+  stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.mobile-bottom-label {
+  font-size: 9px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ACTIVE ITEM
+   ========================================================= */
+
+.mobile-bottom-item.active {
+  color: var(--secondary);
+
+  background:
+    rgba(0, 230, 195, 0.05);
+}
+
+
+.mobile-bottom-item.active
+.mobile-bottom-icon {
+  transform:
+    translateY(-1px);
+}
+
+
+.mobile-bottom-item.active
+.mobile-bottom-icon::after {
+  content: "";
+
+  position: absolute;
+
+  top: 2px;
+
+  width: 4px;
+
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    var(--secondary);
+
+  box-shadow:
+    0 0 10px var(--secondary);
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+   ========================================================= */
+
+.mobile-create-button {
+  position: relative;
+
+  width: 58px;
+
+  height: 58px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 3px;
+
+  margin-top: -18px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--text);
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-normal);
+}
+
+
+.mobile-create-button:hover {
+  transform:
+    translateY(-2px);
+}
+
+
+.mobile-create-button:active {
+  transform:
+    scale(0.94);
+}
+
+
+/* =========================================================
+   CREATE ICON
+   ========================================================= */
+
+.mobile-create-icon {
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #8b5fff
+    );
+
+  border:
+    3px solid var(--background);
+
+  color: #ffffff;
+
+  font-size: 24px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(108, 77, 255, 0.35);
+
+  transition:
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+
+.mobile-create-button:hover
+.mobile-create-icon {
+  box-shadow:
+    0 10px 35px
+    rgba(108, 77, 255, 0.5);
+
+  transform:
+    rotate(3deg);
+}
+
+
+/* =========================================================
+   MESSAGE BADGE
+   ========================================================= */
+
+.mobile-message-badge {
+  position: absolute;
+
+  top: 6px;
+
+  right: 7px;
+
+  min-width: 16px;
+
+  height: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 4px;
+
+  border: 2px solid var(--background);
+
+  border-radius: 20px;
+
+  background:
+    var(--accent);
+
+  color: #ffffff;
+
+  font-size: 7px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  box-shadow:
+    0 0 12px
+    rgba(255, 77, 141, 0.35);
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .mobile-bottom-bar {
+    position: fixed;
+
+    z-index: 1000;
+
+    right: 0;
+
+    bottom: 0;
+
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+
+    padding-bottom:
+      env(safe-area-inset-bottom);
+
+    background:
+      rgba(10, 13, 20, 0.92);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .mobile-bottom-bar-inner {
+    height: 64px;
+
+    padding:
+      5px 4px;
+  }
+
+
+  .mobile-bottom-item {
+    min-width: 50px;
+
+    height: 52px;
+  }
+
+
+  .mobile-bottom-icon {
+    font-size: 18px;
+  }
+
+
+  .mobile-bottom-label {
+    font-size: 8px;
+  }
+
+
+  .mobile-create-button {
+    width: 52px;
+
+    height: 54px;
+  }
+
+
+  .mobile-create-icon {
+    width: 44px;
+
+    height: 44px;
+
+    font-size: 21px;
+  }
+
+}

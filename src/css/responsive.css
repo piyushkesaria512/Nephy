@@ -1,0 +1,1035 @@
+/* =========================================================
+   ESPORTS SOCIAL MEDIA
+   RESPONSIVE SYSTEM
+   Desktop → Laptop → Tablet → Mobile
+   ========================================================= */
+
+
+/* =========================================================
+   DESKTOP
+   1440px+
+   ========================================================= */
+
+@media (min-width: 1440px) {
+
+  .container {
+    max-width: 1440px;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+
+  .tablet-only,
+  .mobile-only {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   LARGE LAPTOP / SMALL DESKTOP
+   1200px - 1439px
+   ========================================================= */
+
+@media (max-width: 1439px) {
+
+  .container {
+    max-width: 1280px;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+
+  .tablet-only,
+  .mobile-only {
+    display: none;
+  }
+
+  /* Main application layout */
+
+  .app-layout {
+    grid-template-columns:
+      var(--sidebar-width)
+      minmax(0, 1fr)
+      320px;
+  }
+
+  /* Right sidebar */
+
+  .right-sidebar {
+    width: 320px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+   1024px - 1199px
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+  :root {
+    --sidebar-width: 230px;
+    --right-sidebar-width: 290px;
+  }
+
+  .container {
+    max-width: 1100px;
+
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+
+  /* Application layout */
+
+  .app-layout {
+    grid-template-columns:
+      var(--sidebar-width)
+      minmax(0, 1fr)
+      290px;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    width: var(--sidebar-width);
+  }
+
+  .sidebar-logo-text {
+    font-size: var(--text-lg);
+  }
+
+  .sidebar-link {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  /* Right sidebar */
+
+  .right-sidebar {
+    width: var(--right-sidebar-width);
+  }
+
+  /* Hide less important right-side content */
+
+  .right-sidebar .recent-activity {
+    display: none;
+  }
+
+  /* Content */
+
+  .main-content {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  /* Desktop / mobile visibility */
+
+  .desktop-only {
+    display: block;
+  }
+
+  .tablet-only,
+  .mobile-only {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   TABLET LANDSCAPE
+   900px - 1023px
+   ========================================================= */
+
+@media (max-width: 1023px) {
+
+  :root {
+    --sidebar-width: 82px;
+  }
+
+  /* -------------------------------------------------------
+     Main Layout
+     ------------------------------------------------------- */
+
+  .app-layout {
+    grid-template-columns:
+      var(--sidebar-collapsed-width)
+      minmax(0, 1fr);
+  }
+
+  /* -------------------------------------------------------
+     Sidebar becomes collapsed
+     ------------------------------------------------------- */
+
+  .sidebar {
+    width: var(--sidebar-collapsed-width);
+  }
+
+  .sidebar-logo {
+    justify-content: center;
+  }
+
+  .sidebar-logo-text {
+    display: none;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+
+    padding:
+      var(--space-3)
+      var(--space-2);
+  }
+
+  .sidebar-link span {
+    display: none;
+  }
+
+  .sidebar-link svg {
+    font-size: 21px;
+  }
+
+  .sidebar-section-title {
+    display: none;
+  }
+
+  .sidebar-profile-info {
+    display: none;
+  }
+
+  .sidebar-profile {
+    justify-content: center;
+  }
+
+  .sidebar-profile img {
+    width: var(--avatar-md);
+    height: var(--avatar-md);
+  }
+
+  .logout-text {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     Right Sidebar
+     ------------------------------------------------------- */
+
+  .right-sidebar {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     Main Content
+     ------------------------------------------------------- */
+
+  .main-content {
+    width: 100%;
+
+    padding:
+      var(--space-5);
+  }
+
+  /* -------------------------------------------------------
+     Tablet Visibility
+     ------------------------------------------------------- */
+
+  .desktop-only {
+    display: none;
+  }
+
+  .tablet-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     Grid Helpers
+     ------------------------------------------------------- */
+
+  .grid-4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* -------------------------------------------------------
+     Cards
+     ------------------------------------------------------- */
+
+  .card {
+    border-radius: var(--radius-lg);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET PORTRAIT
+   768px - 899px
+   ========================================================= */
+
+@media (max-width: 899px) {
+
+  /* Main layout */
+
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    z-index: var(--z-sidebar);
+
+    width: var(--sidebar-collapsed-width);
+  }
+
+  /* Main content */
+
+  .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+
+    width: calc(
+      100% - var(--sidebar-collapsed-width)
+    );
+  }
+
+  /* Stories */
+
+  .stories-container {
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .stories-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Post */
+
+  .post-card {
+    width: 100%;
+  }
+
+  /* Explore */
+
+  .explore-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Tournament */
+
+  .tournament-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Profile */
+
+  .profile-stats {
+    gap: var(--space-5);
+  }
+
+  /* Messages */
+
+  .messages-layout {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .message-profile-panel {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   767px AND BELOW
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  :root {
+    --mobile-bottom-bar-height: 68px;
+  }
+
+  /* -------------------------------------------------------
+     HTML / BODY
+     ------------------------------------------------------- */
+
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    padding-bottom: var(--mobile-bottom-bar-height);
+  }
+
+  /* -------------------------------------------------------
+     Main Layout
+     ------------------------------------------------------- */
+
+  .app-layout {
+    display: block;
+
+    width: 100%;
+
+    min-height: 100vh;
+  }
+
+  /* -------------------------------------------------------
+     Desktop Sidebar
+     ------------------------------------------------------- */
+
+  .sidebar {
+    display: none;
+  }
+
+  /* -------------------------------------------------------
+     Main Content
+     ------------------------------------------------------- */
+
+  .main-content {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding:
+      var(--space-4)
+      var(--space-3)
+      calc(
+        var(--mobile-bottom-bar-height)
+        + var(--space-5)
+      );
+  }
+
+  /* -------------------------------------------------------
+     Mobile Bottom Navigation
+     ------------------------------------------------------- */
+
+  .mobile-bottom-bar {
+    position: fixed;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: var(--mobile-bottom-bar-height);
+
+    z-index: var(--z-header);
+
+    padding:
+      var(--space-2)
+      var(--space-3);
+
+    background:
+      rgba(20, 25, 38, 0.94);
+
+    border-top:
+      1px solid var(--border);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+      0 -10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .mobile-bottom-bar a,
+  .mobile-bottom-bar button {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    min-width: 52px;
+
+    min-height: 50px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    border-radius: var(--radius-md);
+
+    transition:
+      color var(--transition-normal),
+      background var(--transition-normal),
+      transform var(--transition-normal);
+  }
+
+  .mobile-bottom-bar svg {
+    font-size: 20px;
+  }
+
+  .mobile-bottom-bar a:hover,
+  .mobile-bottom-bar button:hover {
+    color: var(--text);
+
+    background:
+      rgba(108, 77, 255, 0.10);
+
+    transform: translateY(-2px);
+  }
+
+  .mobile-bottom-bar .active {
+    color: var(--secondary);
+  }
+
+  /* -------------------------------------------------------
+     Header
+     ------------------------------------------------------- */
+
+  .top-navbar {
+    position: sticky;
+
+    top: 0;
+
+    z-index: var(--z-header);
+
+    min-height: 60px;
+
+    padding:
+      var(--space-3);
+  }
+
+  .navbar-search {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: var(--space-2);
+  }
+
+  /* -------------------------------------------------------
+     Container
+     ------------------------------------------------------- */
+
+  .container {
+    width: 100%;
+
+    padding:
+      0 var(--space-3);
+  }
+
+  /* -------------------------------------------------------
+     Typography
+     ------------------------------------------------------- */
+
+  h1 {
+    font-size: var(--text-3xl);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+  }
+
+  h4 {
+    font-size: var(--text-lg);
+  }
+
+  .page-title {
+    font-size: var(--text-2xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--text-sm);
+  }
+
+  /* -------------------------------------------------------
+     Grid
+     ------------------------------------------------------- */
+
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* -------------------------------------------------------
+     Home Feed
+     ------------------------------------------------------- */
+
+  .home-layout {
+    display: block;
+  }
+
+  .home-main {
+    width: 100%;
+  }
+
+  /* -------------------------------------------------------
+     Stories
+     ------------------------------------------------------- */
+
+  .story-section {
+    width: 100%;
+
+    margin-bottom: var(--space-4);
+  }
+
+  .story-item {
+    flex: 0 0 auto;
+  }
+
+  .story-avatar {
+    width: 58px;
+
+    height: 58px;
+  }
+
+  /* -------------------------------------------------------
+     Post
+     ------------------------------------------------------- */
+
+  .post-card {
+    width: 100%;
+
+    border-radius: var(--radius-lg);
+  }
+
+  .post-header {
+    padding: var(--space-3);
+  }
+
+  .post-content {
+    padding:
+      0 var(--space-3)
+      var(--space-3);
+  }
+
+  .post-actions {
+    padding:
+      var(--space-3);
+  }
+
+  .post-actions button {
+    min-width: 40px;
+  }
+
+  /* -------------------------------------------------------
+     Explore
+     ------------------------------------------------------- */
+
+  .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 3px;
+  }
+
+  .explore-grid .large-item {
+    grid-column: span 2;
+  }
+
+  /* -------------------------------------------------------
+     Tournament
+     ------------------------------------------------------- */
+
+  .tournament-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tournament-card {
+    width: 100%;
+  }
+
+  /* -------------------------------------------------------
+     Profile
+     ------------------------------------------------------- */
+
+  .profile-header {
+    padding:
+      var(--space-4)
+      var(--space-3);
+  }
+
+  .profile-top {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: var(--space-4);
+  }
+
+  .profile-avatar {
+    width: 80px;
+
+    height: 80px;
+  }
+
+  .profile-actions {
+    width: 100%;
+  }
+
+  .profile-stats {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+    gap: var(--space-2);
+
+    margin-top: var(--space-5);
+  }
+
+  .profile-stat {
+    text-align: center;
+  }
+
+  /* -------------------------------------------------------
+     Messages
+     ------------------------------------------------------- */
+
+  .messages-layout {
+    display: block;
+
+    width: 100%;
+  }
+
+  .chat-list {
+    width: 100%;
+  }
+
+  .chat-conversation {
+    width: 100%;
+  }
+
+  .message-profile-panel {
+    display: none;
+  }
+
+  .messages-list-view {
+    display: block;
+  }
+
+  .conversation-view {
+    display: none;
+  }
+
+  .messages-layout.chat-open .messages-list-view {
+    display: none;
+  }
+
+  .messages-layout.chat-open .conversation-view {
+    display: flex;
+  }
+
+  /* -------------------------------------------------------
+     Upload
+     ------------------------------------------------------- */
+
+  .upload-page {
+    width: 100%;
+  }
+
+  .upload-layout {
+    display: block;
+  }
+
+  .upload-sidebar {
+    display: none;
+  }
+
+  .upload-editor {
+    width: 100%;
+  }
+
+  .drop-zone {
+    min-height: 220px;
+
+    padding: var(--space-5);
+  }
+
+  .preview-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  /* -------------------------------------------------------
+     Forms
+     ------------------------------------------------------- */
+
+  .form-row {
+    display: block;
+  }
+
+  .form-group {
+    width: 100%;
+
+    margin-bottom: var(--space-4);
+  }
+
+  input,
+  select {
+    min-height: 46px;
+  }
+
+  textarea {
+    min-height: 110px;
+  }
+
+  /* -------------------------------------------------------
+     Buttons
+     ------------------------------------------------------- */
+
+  .btn {
+    width: 100%;
+  }
+
+  .btn-auto {
+    width: auto;
+  }
+
+  /* -------------------------------------------------------
+     Modal
+     ------------------------------------------------------- */
+
+  .modal-backdrop {
+    align-items: flex-end;
+
+    padding: 0;
+  }
+
+  .modal {
+    max-width: 100%;
+
+    max-height: 92vh;
+
+    border-radius:
+      var(--radius-xl)
+      var(--radius-xl)
+      0
+      0;
+
+    padding:
+      var(--space-5)
+      var(--space-4);
+  }
+
+  /* -------------------------------------------------------
+     Cards
+     ------------------------------------------------------- */
+
+  .card {
+    border-radius: var(--radius-lg);
+  }
+
+  /* -------------------------------------------------------
+     Visibility
+     ------------------------------------------------------- */
+
+  .desktop-only,
+  .tablet-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   480px AND BELOW
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  /* -------------------------------------------------------
+     Main
+     ------------------------------------------------------- */
+
+  .main-content {
+    padding-left: var(--space-2);
+
+    padding-right: var(--space-2);
+  }
+
+  /* -------------------------------------------------------
+     Header
+     ------------------------------------------------------- */
+
+  .top-navbar {
+    padding:
+      var(--space-2);
+  }
+
+  /* -------------------------------------------------------
+     Stories
+     ------------------------------------------------------- */
+
+  .stories-container {
+    gap: var(--space-3);
+  }
+
+  .story-avatar {
+    width: 54px;
+
+    height: 54px;
+  }
+
+  /* -------------------------------------------------------
+     Posts
+     ------------------------------------------------------- */
+
+  .post-card {
+    border-left: 0;
+
+    border-right: 0;
+
+    border-radius: 0;
+  }
+
+  /* -------------------------------------------------------
+     Explore
+     ------------------------------------------------------- */
+
+  .explore-grid {
+    gap: 2px;
+  }
+
+  /* -------------------------------------------------------
+     Upload
+     ------------------------------------------------------- */
+
+  .preview-grid {
+    grid-template-columns: 1fr 1fr;
+
+    gap: var(--space-2);
+  }
+
+  /* -------------------------------------------------------
+     Profile
+     ------------------------------------------------------- */
+
+  .profile-top {
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .profile-avatar {
+    width: 82px;
+
+    height: 82px;
+  }
+
+  .profile-stats {
+    margin-top: var(--space-4);
+  }
+
+  /* -------------------------------------------------------
+     Buttons
+     ------------------------------------------------------- */
+
+  .btn {
+    min-height: 44px;
+  }
+
+  /* -------------------------------------------------------
+     Bottom Navigation
+     ------------------------------------------------------- */
+
+  .mobile-bottom-bar {
+    padding:
+      var(--space-1)
+      var(--space-2);
+  }
+
+  .mobile-bottom-bar a,
+  .mobile-bottom-bar button {
+    min-width: 46px;
+  }
+
+  .mobile-bottom-bar svg {
+    font-size: 19px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   360px AND BELOW
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  .main-content {
+    padding-left: 0;
+
+    padding-right: 0;
+  }
+
+  .story-avatar {
+    width: 50px;
+
+    height: 50px;
+  }
+
+  .mobile-bottom-bar {
+    height: 64px;
+  }
+
+  .mobile-bottom-bar a,
+  .mobile-bottom-bar button {
+    min-width: 40px;
+
+    font-size: 9px;
+  }
+
+  .mobile-bottom-bar svg {
+    font-size: 18px;
+  }
+
+  .profile-stats {
+    gap: 0;
+  }
+
+}
