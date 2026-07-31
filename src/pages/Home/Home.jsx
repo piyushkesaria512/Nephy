@@ -17,9 +17,44 @@ function Home() {
   }, []);
 
   return (
-    <div className="home-page">
-      <h1>Welcome to Esports Arena</h1>
-      <p>Your esports social network.</p>
+    <div className="home">
+
+      {/* LEFT SIDEBAR */}
+      <aside className="home__left">
+        <Sidebar />
+      </aside>
+
+      {/* CENTER CONTENT */}
+      <main className="home__center">
+
+        <motion.section
+          className="home__stories"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <StorySection />
+        </motion.section>
+
+        <motion.section
+          className="home__feed"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: .2 }}
+        >
+          <Feed />
+        </motion.section>
+
+      </main>
+
+      {/* RIGHT SIDEBAR */}
+      <aside className="home__right">
+        <RightSidebar />
+      </aside>
+
+      {/* MOBILE NAVIGATION */}
+      <MobileBottomBar />
+
     </div>
   );
 }
