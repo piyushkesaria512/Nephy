@@ -73,20 +73,19 @@ function Sidebar() {
       transition={{ duration: 0.5 }}
     >
       {/* Logo */}
-      <div className="sidebar__logo">
-        <span className="logo-icon">⚡</span>
+      {/* <div className="sidebar__logo">
+        <span className="logo-icon">
+          <img src="/nephy.png" alt="NEPHY Logo" />
+        </span>
         <h2>NEPHY</h2>
-      </div>
+      </div> */}
 
       {/* User */}
       <div className="sidebar__profile">
-        <img
-          src="https://i.pravatar.cc/150?img=12"
-          alt="User"
-        />
+        <img src="/phyne2.png" alt="User" />
 
         <div>
-          <h4>Kaushal Kumar</h4>
+          <h4>Piyush Kesaria</h4>
           <p>Esports Player</p>
         </div>
       </div>
@@ -98,14 +97,10 @@ function Sidebar() {
             key={item.title}
             to={item.path}
             className={({ isActive }) =>
-              isActive
-                ? "sidebar__link active"
-                : "sidebar__link"
+              isActive ? "sidebar__link active" : "sidebar__link"
             }
           >
-            <span className="sidebar__icon">
-              {item.icon}
-            </span>
+            <span className="sidebar__icon">{item.icon}</span>
 
             <span>{item.title}</span>
           </NavLink>

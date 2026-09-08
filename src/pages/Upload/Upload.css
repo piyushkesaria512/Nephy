@@ -1,0 +1,583 @@
+/* =========================================
+   NEPHY - UPLOAD PAGE
+========================================= */
+
+.upload-page {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 30px 24px 70px;
+
+    box-sizing: border-box;
+
+    color: var(--text);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.upload-header {
+    margin-bottom: 24px;
+}
+
+.upload-header h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    color: var(--text);
+}
+
+.upload-header p {
+    margin: 7px 0 0;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   POST TYPE
+========================================= */
+
+.upload-type {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 6px;
+
+    margin-bottom: 20px;
+
+    background: rgba(20, 25, 38, 0.75);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+}
+
+.upload-type button {
+    flex: 1;
+
+    border: none;
+
+    padding: 12px 15px;
+
+    border-radius: 11px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.upload-type button:hover {
+    color: var(--text);
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.upload-type button.active {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        #805cff
+    );
+
+    box-shadow:
+        0 8px 25px rgba(108, 77, 255, 0.25);
+}
+
+
+/* =========================================
+   DROP ZONE
+========================================= */
+
+.drop-zone {
+    width: 100%;
+
+    min-height: 330px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(108, 77, 255, 0.10),
+            transparent 65%
+        );
+
+    border: 1.5px dashed rgba(108, 77, 255, 0.45);
+
+    border-radius: 22px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.drop-zone:hover {
+    border-color: var(--primary);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(108, 77, 255, 0.15),
+            transparent 65%
+        );
+
+    transform: translateY(-2px);
+}
+
+.upload-icon {
+    font-size: 55px;
+
+    margin-bottom: 18px;
+
+    color: var(--primary);
+
+    filter:
+        drop-shadow(
+            0 8px 20px rgba(108, 77, 255, 0.35)
+        );
+}
+
+.drop-zone h2 {
+    margin: 0 0 7px;
+
+    font-size: 21px;
+
+    color: var(--text);
+}
+
+.drop-zone p {
+    margin: 0 0 20px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SELECT FILE BUTTON
+========================================= */
+
+.drop-zone > button {
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(108, 77, 255, 0.25);
+
+    transition: all 0.25s ease;
+}
+
+.drop-zone > button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(108, 77, 255, 0.35);
+}
+
+
+/* =========================================
+   PREVIEW GRID
+========================================= */
+
+.preview-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   PREVIEW CARD
+========================================= */
+
+.preview-card {
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #080b12;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.preview-card img,
+.preview-card video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================
+   REMOVE BUTTON
+========================================= */
+
+.remove-btn {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+    background: var(--accent);
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.form-section {
+    margin-top: 22px;
+
+    padding: 24px;
+
+    background: rgba(20, 25, 38, 0.78);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    box-sizing: border-box;
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.form-section label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.form-section label:not(:first-child) {
+    margin-top: 18px;
+}
+
+.form-section label svg {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.form-section input,
+.form-section textarea,
+.form-section select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition: all 0.25s ease;
+}
+
+.form-section textarea {
+    min-height: 120px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+.form-section input::placeholder,
+.form-section textarea::placeholder {
+    color: var(--muted);
+}
+
+
+/* =========================================
+   INPUT FOCUS
+========================================= */
+
+.form-section input:focus,
+.form-section textarea:focus,
+.form-section select:focus {
+    border-color: var(--primary);
+
+    background: rgba(108, 77, 255, 0.05);
+
+    box-shadow:
+        0 0 0 3px rgba(108, 77, 255, 0.10);
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.form-section select {
+    cursor: pointer;
+}
+
+.form-section select option {
+    background: #141926;
+
+    color: white;
+}
+
+
+/* =========================================
+   PUBLISH BUTTON
+========================================= */
+
+.publish-btn {
+    width: 100%;
+
+    margin-top: 24px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(108, 77, 255, 0.25);
+
+    transition: all 0.25s ease;
+}
+
+.publish-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 35px rgba(108, 77, 255, 0.35);
+}
+
+.publish-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .upload-page {
+        max-width: 760px;
+
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .preview-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .upload-page {
+        padding: 20px 12px 90px;
+    }
+
+    .upload-header h1 {
+        font-size: 23px;
+    }
+
+    .upload-type {
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .upload-type::-webkit-scrollbar {
+        display: none;
+    }
+
+    .upload-type button {
+        min-width: 100px;
+
+        flex: none;
+    }
+
+    .drop-zone {
+        min-height: 280px;
+
+        padding: 25px 16px;
+    }
+
+    .upload-icon {
+        font-size: 45px;
+    }
+
+    .drop-zone h2 {
+        font-size: 18px;
+    }
+
+    .preview-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .form-section {
+        padding: 18px;
+
+        border-radius: 17px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-type button {
+        min-width: 90px;
+
+        padding: 11px 10px;
+
+        font-size: 13px;
+    }
+}

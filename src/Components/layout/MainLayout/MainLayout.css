@@ -1,210 +1,244 @@
-/* =========================================================
-   MAIN APPLICATION LAYOUT
-   ========================================================= */
+/* =========================================
+   MAIN LAYOUT
+========================================= */
 
-.app-layout {
+.main-layout {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+.main-layout-body {
   display: grid;
 
+  /* SIDEBAR stays 280px */
+  /* CENTER gets more space */
+  /* RIGHT SIDEBAR gets more space */
+
   grid-template-columns:
-    var(--sidebar-width)
+    280px
     minmax(0, 1fr)
-    var(--right-sidebar-width);
+    380px;
 
   width: 100%;
-  min-height: 100vh;
-
-  background:
-    var(--background);
-
-  transition:
-    grid-template-columns var(--transition-medium);
+  min-height: calc(100vh - 70px);
 }
 
 
-/* =========================================================
+/* =========================================
    LEFT SIDEBAR
-   ========================================================= */
+   DON'T CHANGE THIS SIZE
+========================================= */
 
-.app-sidebar {
-  position: relative;
-
-  width: var(--sidebar-width);
-
-  min-height: 100vh;
-
-  z-index: var(--z-sidebar);
-}
-
-
-/* =========================================================
-   MAIN CONTENT
-   ========================================================= */
-
-.main-content {
-  position: relative;
-
-  width: 100%;
+.main-layout-left {
+  width: 280px;
   min-width: 0;
 
-  min-height: 100vh;
+  position: sticky;
+  top: 70px;
 
-  padding:
-    var(--space-6);
+  height: calc(100vh - 70px);
+
+  overflow-y: auto;
+
+  border-right: 1px solid var(--border);
+}
+
+
+/* =========================================
+   CENTER CONTENT
+========================================= */
+
+.main-layout-content {
+  min-width: 0;
+  width: 100%;
+
+  /* Smaller horizontal padding = more usable space */
+  padding: 24px 20px;
 
   overflow-x: hidden;
 }
 
 
-/* =========================================================
-   PAGE CONTAINER
-   ========================================================= */
+/* =========================================
+   RIGHT SIDEBAR
+========================================= */
 
-.page-container {
+.main-layout-right {
+  width: 380px;
+  min-width: 0;
+
+  position: sticky;
+  top: 70px;
+
+  height: calc(100vh - 70px);
+
+  padding: 24px 18px;
+
+  overflow-y: auto;
+
+  border-left: 1px solid var(--border);
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home {
+  width: 100%;
+}
+
+
+/* =========================================
+   HOME CENTER
+========================================= */
+
+.home__center {
   width: 100%;
 
-  max-width:
-    var(--content-max-width);
+  /* Increased from 850px */
+  max-width: 1050px;
 
-  margin:
-    0 auto;
+  margin: 0 auto;
 }
 
 
-/* =========================================================
-   RIGHT SIDEBAR
-   ========================================================= */
+/* =========================================
+   STORIES
+========================================= */
 
-.app-right-sidebar {
-  position: relative;
-
-  width: var(--right-sidebar-width);
-
-  min-height: 100vh;
-
-  padding:
-    var(--space-6)
-    var(--space-5)
-    var(--space-6)
-    0;
-
-  z-index: var(--z-sidebar);
+.home__stories {
+  width: 100%;
+  margin-bottom: 22px;
 }
 
 
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
+/* =========================================
+   FEED
+========================================= */
 
-.app-mobile-navigation {
-  display: none;
+.home__feed {
+  width: 100%;
 }
 
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* =========================================
+   RESPONSIVE - LAPTOP
+========================================= */
 
-@media (max-width: 1023px) {
+@media (max-width: 1400px) {
 
-  .app-layout {
+  .main-layout-body {
     grid-template-columns:
-      var(--sidebar-collapsed-width)
+      280px
+      minmax(0, 1fr)
+      340px;
+  }
+
+  .main-layout-right {
+    width: 340px;
+  }
+
+  .home__center {
+    max-width: 950px;
+  }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - SMALL LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .main-layout-body {
+    grid-template-columns:
+      95px
+      minmax(0, 1fr)
+      300px;
+  }
+
+  .main-layout-left {
+    width: 95px;
+  }
+
+  .main-layout-right {
+    width: 300px;
+  }
+
+  .main-layout-content {
+    padding: 20px 18px;
+  }
+
+  .home__center {
+    max-width: 1000px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .main-layout-body {
+    grid-template-columns:
+      95px
       minmax(0, 1fr);
   }
 
-
-  .app-sidebar {
-    width: var(--sidebar-collapsed-width);
-  }
-
-
-  .app-right-sidebar {
+  .main-layout-right {
     display: none;
   }
 
+  .main-layout-content {
+    padding: 20px;
+  }
 
-  .main-content {
-    padding:
-      var(--space-5);
+  .home__center {
+    max-width: 100%;
   }
 
 }
 
 
-/* =========================================================
+/* =========================================
    MOBILE
-   ========================================================= */
+========================================= */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
-  .app-layout {
+  .main-layout-body {
     display: block;
-
-    min-height: 100vh;
   }
 
-
-  .app-sidebar {
+  .main-layout-left {
     display: none;
   }
 
-
-  .app-right-sidebar {
+  .main-layout-right {
     display: none;
   }
 
-
-  .main-content {
+  .main-layout-content {
     width: 100%;
-
-    min-height: calc(100vh - 68px);
-
-    padding:
-      var(--space-3)
-      var(--space-2)
-      90px;
+    padding: 15px;
+    padding-bottom: 90px;
   }
 
-
-  .page-container {
-    width: 100%;
-
+  .home__center {
     max-width: none;
-  }
-
-
-  .app-mobile-navigation {
-    display: block;
-
-    position: fixed;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    width: 100%;
-
-    height:
-      var(--mobile-bottom-bar-height, 68px);
-
-    z-index:
-      var(--z-header);
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .main-content {
-    padding:
-      var(--space-2)
-      0
-      82px;
   }
 
 }

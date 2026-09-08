@@ -16,14 +16,17 @@ function MainLayout() {
 
       <div className="main-layout-body">
 
+        {/* LEFT SIDEBAR */}
         <aside className="main-layout-left">
           <Sidebar />
         </aside>
 
+        {/* CENTER CONTENT */}
         <main className="main-layout-content">
           <Outlet />
         </main>
 
+        {/* RIGHT SIDEBAR */}
         <aside className="main-layout-right">
           <RightSidebar />
         </aside>

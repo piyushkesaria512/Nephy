@@ -12,7 +12,7 @@ import {
   FiGithub,
   FiCheckCircle,
   FiZap,
-  FiGamepad2,
+  FiMonitor,
 } from "react-icons/fi";
 
 import "./Register.css";
@@ -210,7 +210,7 @@ function Register() {
               <div className="register-feature">
 
                 <div className="register-feature-icon">
-                  <FiGamepad2 />
+                  <FiMonitor />
                 </div>
 
                 <div>
@@ -433,7 +433,7 @@ function Register() {
                     }
                     onClick={() => handleAccountType("player")}
                   >
-                    <FiGamepad2 />
+                    <FiMonitor />
 
                     <span>
                       <strong>Player</strong>

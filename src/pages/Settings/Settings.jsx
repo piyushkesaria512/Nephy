@@ -8,7 +8,6 @@ import {
   FiMonitor,
   FiGlobe,
   FiLink,
-  FiGamepad,
   FiSmartphone,
   FiHardDrive,
   FiDownload,
@@ -168,7 +167,7 @@ function Settings() {
         {
           id: "gaming",
           label: "Gaming Accounts",
-          icon: <FiGamepad />,
+          icon: <FiMonitor />,
         },
       ],
     },
@@ -196,99 +195,68 @@ function Settings() {
 
   return (
     <div className="settings-page">
-
       {/* =====================================================
           HEADER
       ===================================================== */}
 
       <div className="settings-header">
-
         <div>
-          <span className="settings-kicker">
-            ACCOUNT CONTROL CENTER
-          </span>
+          <span className="settings-kicker">ACCOUNT CONTROL CENTER</span>
 
           <h1>Settings</h1>
 
-          <p>
-            Manage your account, privacy, security and gaming
-            preferences.
-          </p>
+          <p>Manage your account, privacy, security and gaming preferences.</p>
         </div>
 
         <button
-          className={`settings-save-btn ${
-            saved ? "saved" : ""
-          }`}
+          className={`settings-save-btn ${saved ? "saved" : ""}`}
           onClick={handleSave}
         >
           {saved ? <FiCheck /> : <FiCheck />}
           {saved ? "Saved" : "Save Changes"}
         </button>
-
       </div>
-
 
       {/* =====================================================
           SETTINGS LAYOUT
       ===================================================== */}
 
       <div className="settings-layout">
-
         {/* =================================================
             SETTINGS SIDEBAR
         ================================================= */}
 
         <aside className="settings-sidebar">
-
           {sections.map((section) => (
-            <div
-              className="settings-nav-group"
-              key={section.title}
-            >
-
-              <span className="settings-nav-title">
-                {section.title}
-              </span>
+            <div className="settings-nav-group" key={section.title}>
+              <span className="settings-nav-title">{section.title}</span>
 
               {section.items.map((item) => (
                 <button
                   key={item.id}
                   className={`settings-nav-item ${
-                    activeSection === item.id
-                      ? "active"
-                      : ""
+                    activeSection === item.id ? "active" : ""
                   }`}
-                  onClick={() =>
-                    setActiveSection(item.id)
-                  }
+                  onClick={() => setActiveSection(item.id)}
                 >
-                  <span className="settings-nav-icon">
-                    {item.icon}
-                  </span>
+                  <span className="settings-nav-icon">{item.icon}</span>
 
                   <span>{item.label}</span>
 
                   <FiChevronRight className="settings-nav-arrow" />
                 </button>
               ))}
-
             </div>
           ))}
 
           {/* DANGER */}
 
           <div className="settings-danger-nav">
-
             <button
               className={`settings-nav-item danger ${
-                activeSection === "danger"
-                  ? "active"
-                  : ""
+                activeSection === "danger" ? "active" : ""
               }`}
-              onClick={() =>
-                setActiveSection("danger")
-              }
+              onClick={() => setActiveSection("danger")}
             >
               <span className="settings-nav-icon">
                 <FiTrash2 />
@@ -298,25 +266,20 @@ function Settings() {
 
               <FiChevronRight className="settings-nav-arrow" />
             </button>
-
           </div>
-
         </aside>
-
 
         {/* =================================================
             SETTINGS CONTENT
         ================================================= */}
 
         <main className="settings-content">
-
           {/* =================================================
               ACCOUNT
           ================================================= */}
 
           {activeSection === "account" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiUser />}
                 eyebrow="ACCOUNT"
@@ -325,44 +288,29 @@ function Settings() {
               />
 
               <div className="settings-profile-banner">
-
                 <div className="settings-profile-avatar">
-
-                  <img
-                    src="https://i.pravatar.cc/300?img=12"
-                    alt="Profile"
-                  />
+                  <img src="https://i.pravatar.cc/300?img=12" alt="Profile" />
 
                   <button>
                     <FiEdit3 />
                   </button>
-
                 </div>
 
                 <div className="settings-profile-info">
-
                   <h3>Kaushal</h3>
 
-                  <span>
-                    @kaushalx
-                  </span>
+                  <span>@kaushalx</span>
 
-                  <small>
-                    Professional Esports Player
-                  </small>
-
+                  <small>Professional Esports Player</small>
                 </div>
 
                 <div className="settings-profile-status">
                   <span className="online-dot" />
                   Active
                 </div>
-
               </div>
 
-
               <div className="settings-form-grid">
-
                 <SettingsInput
                   label="Username"
                   name="username"
@@ -394,12 +342,9 @@ function Settings() {
                   onChange={handleProfileChange}
                   icon={<FiMapPin />}
                 />
-
               </div>
 
-
               <div className="settings-field">
-
                 <label>Bio</label>
 
                 <textarea
@@ -410,12 +355,8 @@ function Settings() {
                   maxLength="250"
                 />
 
-                <span className="field-counter">
-                  {profile.bio.length}/250
-                </span>
-
+                <span className="field-counter">{profile.bio.length}/250</span>
               </div>
-
 
               <div className="settings-divider" />
 
@@ -446,10 +387,8 @@ function Settings() {
                   </select>
                 }
               />
-
             </section>
           )}
-
 
           {/* =================================================
               SECURITY
@@ -457,7 +396,6 @@ function Settings() {
 
           {activeSection === "security" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiShield />}
                 eyebrow="SECURITY"
@@ -466,27 +404,18 @@ function Settings() {
               />
 
               <div className="security-status-card">
-
                 <div className="security-status-icon">
                   <FiShield />
                 </div>
 
                 <div>
-
                   <strong>Your account is secure</strong>
 
-                  <p>
-                    No suspicious login activity detected.
-                  </p>
-
+                  <p>No suspicious login activity detected.</p>
                 </div>
 
-                <span className="security-good">
-                  Good
-                </span>
-
+                <span className="security-good">Good</span>
               </div>
-
 
               <SettingsRow
                 icon={<FiKey />}
@@ -495,9 +424,7 @@ function Settings() {
                 right={
                   <button
                     className="settings-outline-btn"
-                    onClick={() =>
-                      setShowPasswordModal(true)
-                    }
+                    onClick={() => setShowPasswordModal(true)}
                   >
                     Change Password
                   </button>
@@ -511,9 +438,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.twoFactor}
-                    onClick={() =>
-                      toggleSetting("twoFactor")
-                    }
+                    onClick={() => toggleSetting("twoFactor")}
                   />
                 }
               />
@@ -525,9 +450,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.loginAlerts}
-                    onClick={() =>
-                      toggleSetting("loginAlerts")
-                    }
+                    onClick={() => toggleSetting("loginAlerts")}
                   />
                 }
               />
@@ -539,18 +462,14 @@ function Settings() {
                 right={
                   <button
                     className="settings-outline-btn"
-                    onClick={() =>
-                      setActiveSection("sessions")
-                    }
+                    onClick={() => setActiveSection("sessions")}
                   >
                     View Sessions
                   </button>
                 }
               />
-
             </section>
           )}
-
 
           {/* =================================================
               PRIVACY
@@ -558,7 +477,6 @@ function Settings() {
 
           {activeSection === "privacy" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiEye />}
                 eyebrow="PRIVACY"
@@ -573,9 +491,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.privateAccount}
-                    onClick={() =>
-                      toggleSetting("privateAccount")
-                    }
+                    onClick={() => toggleSetting("privateAccount")}
                   />
                 }
               />
@@ -587,9 +503,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.activityStatus}
-                    onClick={() =>
-                      toggleSetting("activityStatus")
-                    }
+                    onClick={() => toggleSetting("activityStatus")}
                   />
                 }
               />
@@ -601,9 +515,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.readReceipts}
-                    onClick={() =>
-                      toggleSetting("readReceipts")
-                    }
+                    onClick={() => toggleSetting("readReceipts")}
                   />
                 }
               />
@@ -615,23 +527,19 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.onlineStatus}
-                    onClick={() =>
-                      toggleSetting("onlineStatus")
-                    }
+                    onClick={() => toggleSetting("onlineStatus")}
                   />
                 }
               />
 
               <SettingsRow
-                icon={<FiAward />}
+                icon={<FiActivity />}
                 title="Show Rank"
                 description="Display your competitive rank publicly."
                 right={
                   <Toggle
                     enabled={settings.showRank}
-                    onClick={() =>
-                      toggleSetting("showRank")
-                    }
+                    onClick={() => toggleSetting("showRank")}
                   />
                 }
               />
@@ -643,46 +551,34 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.showGameStats}
-                    onClick={() =>
-                      toggleSetting("showGameStats")
-                    }
+                    onClick={() => toggleSetting("showGameStats")}
                   />
                 }
               />
 
               <div className="settings-subsection">
-
                 <h3>Blocked Users</h3>
 
-                <p>
-                  Manage accounts you have blocked.
-                </p>
+                <p>Manage accounts you have blocked.</p>
 
                 <button className="settings-outline-btn">
                   Manage Blocked Users
                   <FiChevronRight />
                 </button>
-
               </div>
 
               <div className="settings-subsection">
-
                 <h3>Muted Users</h3>
 
-                <p>
-                  Manage accounts whose content you have muted.
-                </p>
+                <p>Manage accounts whose content you have muted.</p>
 
                 <button className="settings-outline-btn">
                   Manage Muted Users
                   <FiChevronRight />
                 </button>
-
               </div>
-
             </section>
           )}
-
 
           {/* =================================================
               NOTIFICATIONS
@@ -690,7 +586,6 @@ function Settings() {
 
           {activeSection === "notifications" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiBell />}
                 eyebrow="NOTIFICATIONS"
@@ -699,7 +594,6 @@ function Settings() {
               />
 
               <div className="notification-group">
-
                 <h3>General</h3>
 
                 <SettingsRow
@@ -708,14 +602,8 @@ function Settings() {
                   description="Receive important updates through email."
                   right={
                     <Toggle
-                      enabled={
-                        settings.emailNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "emailNotifications"
-                        )
-                      }
+                      enabled={settings.emailNotifications}
+                      onClick={() => toggleSetting("emailNotifications")}
                     />
                   }
                 />
@@ -726,22 +614,14 @@ function Settings() {
                   description="Receive notifications on your devices."
                   right={
                     <Toggle
-                      enabled={
-                        settings.pushNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "pushNotifications"
-                        )
-                      }
+                      enabled={settings.pushNotifications}
+                      onClick={() => toggleSetting("pushNotifications")}
                     />
                   }
                 />
-
               </div>
 
               <div className="notification-group">
-
                 <h3>Social</h3>
 
                 <SettingsRow
@@ -750,14 +630,8 @@ function Settings() {
                   description="New direct messages and chat activity."
                   right={
                     <Toggle
-                      enabled={
-                        settings.messageNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "messageNotifications"
-                        )
-                      }
+                      enabled={settings.messageNotifications}
+                      onClick={() => toggleSetting("messageNotifications")}
                     />
                   }
                 />
@@ -768,14 +642,8 @@ function Settings() {
                   description="When another player mentions you."
                   right={
                     <Toggle
-                      enabled={
-                        settings.mentionNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "mentionNotifications"
-                        )
-                      }
+                      enabled={settings.mentionNotifications}
+                      onClick={() => toggleSetting("mentionNotifications")}
                     />
                   }
                 />
@@ -786,38 +654,24 @@ function Settings() {
                   description="Likes, comments and interactions."
                   right={
                     <Toggle
-                      enabled={
-                        settings.achievementNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "achievementNotifications"
-                        )
-                      }
+                      enabled={settings.achievementNotifications}
+                      onClick={() => toggleSetting("achievementNotifications")}
                     />
                   }
                 />
-
               </div>
 
               <div className="notification-group">
-
                 <h3>Gaming</h3>
 
                 <SettingsRow
-                  icon={<FiAward />}
+                  icon={<FiActivity />}
                   title="Tournament Notifications"
                   description="Tournament starts, invites and registration updates."
                   right={
                     <Toggle
-                      enabled={
-                        settings.tournamentNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "tournamentNotifications"
-                        )
-                      }
+                      enabled={settings.tournamentNotifications}
+                      onClick={() => toggleSetting("tournamentNotifications")}
                     />
                   }
                 />
@@ -828,23 +682,14 @@ function Settings() {
                   description="Get notified when you unlock achievements."
                   right={
                     <Toggle
-                      enabled={
-                        settings.achievementNotifications
-                      }
-                      onClick={() =>
-                        toggleSetting(
-                          "achievementNotifications"
-                        )
-                      }
+                      enabled={settings.achievementNotifications}
+                      onClick={() => toggleSetting("achievementNotifications")}
                     />
                   }
                 />
-
               </div>
-
             </section>
           )}
-
 
           {/* =================================================
               APPEARANCE
@@ -852,7 +697,6 @@ function Settings() {
 
           {activeSection === "appearance" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiMonitor />}
                 eyebrow="APPEARANCE"
@@ -861,25 +705,18 @@ function Settings() {
               />
 
               <div className="theme-preview">
-
                 <div className="theme-preview-window">
-
                   <div className="theme-preview-top" />
 
                   <div className="theme-preview-body">
-
                     <div className="theme-preview-sidebar" />
 
                     <div className="theme-preview-content">
-
                       <span />
                       <span />
                       <span />
-
                     </div>
-
                   </div>
-
                 </div>
 
                 <div>
@@ -893,9 +730,7 @@ function Settings() {
                   <FiCheck />
                   Active
                 </span>
-
               </div>
-
 
               <SettingsRow
                 icon={<FiMoon />}
@@ -904,9 +739,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.darkMode}
-                    onClick={() =>
-                      toggleSetting("darkMode")
-                    }
+                    onClick={() => toggleSetting("darkMode")}
                   />
                 }
               />
@@ -918,9 +751,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.autoplayVideos}
-                    onClick={() =>
-                      toggleSetting("autoplayVideos")
-                    }
+                    onClick={() => toggleSetting("autoplayVideos")}
                   />
                 }
               />
@@ -932,16 +763,12 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.soundEffects}
-                    onClick={() =>
-                      toggleSetting("soundEffects")
-                    }
+                    onClick={() => toggleSetting("soundEffects")}
                   />
                 }
               />
-
             </section>
           )}
-
 
           {/* =================================================
               ACCESSIBILITY
@@ -949,7 +776,6 @@ function Settings() {
 
           {activeSection === "accessibility" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiActivity />}
                 eyebrow="ACCESSIBILITY"
@@ -964,9 +790,7 @@ function Settings() {
                 right={
                   <Toggle
                     enabled={settings.reducedMotion}
-                    onClick={() =>
-                      toggleSetting("reducedMotion")
-                    }
+                    onClick={() => toggleSetting("reducedMotion")}
                   />
                 }
               />
@@ -995,10 +819,8 @@ function Settings() {
                   </select>
                 }
               />
-
             </section>
           )}
-
 
           {/* =================================================
               CONNECTED ACCOUNTS
@@ -1006,7 +828,6 @@ function Settings() {
 
           {activeSection === "connected" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiLink />}
                 eyebrow="CONNECTIONS"
@@ -1045,10 +866,8 @@ function Settings() {
                 description="Connect your creator channel."
                 icon="Y"
               />
-
             </section>
           )}
-
 
           {/* =================================================
               GAMING ACCOUNTS
@@ -1056,9 +875,8 @@ function Settings() {
 
           {activeSection === "gaming" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
-                icon={<FiGamepad />}
+                icon={<FiMonitor />}
                 eyebrow="GAMING"
                 title="Gaming Accounts"
                 description="Connect your gaming profiles and competitive identities."
@@ -1085,15 +903,9 @@ function Settings() {
                 connected
               />
 
-              <GamingAccount
-                game="PUBG"
-                username=""
-                rank=""
-              />
-
+              <GamingAccount game="PUBG" username="" rank="" />
             </section>
           )}
-
 
           {/* =================================================
               SESSIONS
@@ -1101,7 +913,6 @@ function Settings() {
 
           {activeSection === "sessions" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiSmartphone />}
                 eyebrow="SECURITY"
@@ -1135,10 +946,8 @@ function Settings() {
                 <FiLogOut />
                 Log Out From All Other Devices
               </button>
-
             </section>
           )}
-
 
           {/* =================================================
               STORAGE
@@ -1146,7 +955,6 @@ function Settings() {
 
           {activeSection === "storage" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiHardDrive />}
                 eyebrow="DATA"
@@ -1155,16 +963,13 @@ function Settings() {
               />
 
               <div className="storage-card">
-
                 <div className="storage-top">
-
                   <div>
                     <span>STORAGE USED</span>
                     <strong>6.8 GB</strong>
                   </div>
 
                   <span>10 GB</span>
-
                 </div>
 
                 <div className="storage-progress">
@@ -1172,7 +977,6 @@ function Settings() {
                 </div>
 
                 <div className="storage-breakdown">
-
                   <span>
                     <FiImage />
                     Images
@@ -1190,9 +994,7 @@ function Settings() {
                     Downloads
                     <strong>0.9 GB</strong>
                   </span>
-
                 </div>
-
               </div>
 
               <SettingsRow
@@ -1200,15 +1002,11 @@ function Settings() {
                 title="Clear Cached Media"
                 description="Remove locally cached media from this device."
                 right={
-                  <button className="settings-outline-btn">
-                    Clear Cache
-                  </button>
+                  <button className="settings-outline-btn">Clear Cache</button>
                 }
               />
-
             </section>
           )}
-
 
           {/* =================================================
               DOWNLOADS
@@ -1216,7 +1014,6 @@ function Settings() {
 
           {activeSection === "downloads" && (
             <section className="settings-section">
-
               <SettingsSectionHeader
                 icon={<FiDownload />}
                 eyebrow="DATA"
@@ -1242,29 +1039,18 @@ function Settings() {
                 icon={<FiSmartphone />}
                 title="Download Over Wi-Fi Only"
                 description="Prevent downloads from using mobile data."
-                right={
-                  <Toggle
-                    enabled={true}
-                    onClick={() => {}}
-                  />
-                }
+                right={<Toggle enabled={true} onClick={() => {}} />}
               />
 
               <div className="download-empty">
-
                 <FiDownload />
 
                 <h3>No offline downloads</h3>
 
-                <p>
-                  Videos and posts you download will appear here.
-                </p>
-
+                <p>Videos and posts you download will appear here.</p>
               </div>
-
             </section>
           )}
-
 
           {/* =================================================
               DANGER ZONE
@@ -1272,7 +1058,6 @@ function Settings() {
 
           {activeSection === "danger" && (
             <section className="settings-section danger-section">
-
               <SettingsSectionHeader
                 icon={<FiAlertTriangle />}
                 eyebrow="DANGER ZONE"
@@ -1281,58 +1066,39 @@ function Settings() {
               />
 
               <div className="danger-card">
-
                 <div className="danger-icon">
                   <FiTrash2 />
                 </div>
 
                 <div>
-
                   <h3>Delete Account</h3>
 
                   <p>
-                    Permanently delete your profile, posts,
-                    messages, statistics and tournament history.
+                    Permanently delete your profile, posts, messages, statistics
+                    and tournament history.
                   </p>
-
                 </div>
 
-                <button className="delete-account-btn">
-                  Delete Account
-                </button>
-
+                <button className="delete-account-btn">Delete Account</button>
               </div>
 
-
               <div className="danger-card">
-
                 <div className="danger-icon logout">
                   <FiLogOut />
                 </div>
 
                 <div>
-
                   <h3>Log Out</h3>
 
-                  <p>
-                    Log out from your current account on this device.
-                  </p>
-
+                  <p>Log out from your current account on this device.</p>
                 </div>
 
-                <button className="logout-btn">
-                  Log Out
-                </button>
-
+                <button className="logout-btn">Log Out</button>
               </div>
-
             </section>
           )}
-
         </main>
-
       </div>
-
 
       {/* =====================================================
           PASSWORD MODAL
@@ -1340,14 +1106,10 @@ function Settings() {
 
       {showPasswordModal && (
         <div className="settings-modal-backdrop">
-
           <div className="settings-modal">
-
             <button
               className="settings-modal-close"
-              onClick={() =>
-                setShowPasswordModal(false)
-              }
+              onClick={() => setShowPasswordModal(false)}
             >
               <FiX />
             </button>
@@ -1358,12 +1120,9 @@ function Settings() {
 
             <h2>Change Password</h2>
 
-            <p>
-              Create a strong password you haven't used before.
-            </p>
+            <p>Create a strong password you haven't used before.</p>
 
             <div className="modal-field">
-
               <label>Current Password</label>
 
               <input
@@ -1373,11 +1132,9 @@ function Settings() {
                 onChange={handlePasswordChange}
                 placeholder="Enter current password"
               />
-
             </div>
 
             <div className="modal-field">
-
               <label>New Password</label>
 
               <input
@@ -1387,11 +1144,9 @@ function Settings() {
                 onChange={handlePasswordChange}
                 placeholder="Enter new password"
               />
-
             </div>
 
             <div className="modal-field">
-
               <label>Confirm Password</label>
 
               <input
@@ -1401,7 +1156,6 @@ function Settings() {
                 onChange={handlePasswordChange}
                 placeholder="Confirm new password"
               />
-
             </div>
 
             <button
@@ -1417,119 +1171,69 @@ function Settings() {
             >
               Update Password
             </button>
-
           </div>
-
         </div>
       )}
-
     </div>
   );
 }
-
 
 /* =========================================================
    REUSABLE COMPONENTS
 ========================================================= */
 
-function SettingsSectionHeader({
-  icon,
-  eyebrow,
-  title,
-  description,
-}) {
+function SettingsSectionHeader({ icon, eyebrow, title, description }) {
   return (
     <div className="settings-section-header">
-
-      <div className="settings-section-icon">
-        {icon}
-      </div>
+      <div className="settings-section-icon">{icon}</div>
 
       <div>
-        <span className="settings-kicker">
-          {eyebrow}
-        </span>
+        <span className="settings-kicker">{eyebrow}</span>
 
         <h2>{title}</h2>
 
         <p>{description}</p>
       </div>
-
     </div>
   );
 }
 
-
-function SettingsRow({
-  icon,
-  title,
-  description,
-  right,
-}) {
+function SettingsRow({ icon, title, description, right }) {
   return (
     <div className="settings-row">
-
       <div className="settings-row-left">
-
-        <div className="settings-row-icon">
-          {icon}
-        </div>
+        <div className="settings-row-icon">{icon}</div>
 
         <div>
           <h3>{title}</h3>
 
           <p>{description}</p>
         </div>
-
       </div>
 
-      <div className="settings-row-right">
-        {right}
-      </div>
-
+      <div className="settings-row-right">{right}</div>
     </div>
   );
 }
 
-
-function SettingsInput({
-  label,
-  name,
-  value,
-  onChange,
-  icon,
-}) {
+function SettingsInput({ label, name, value, onChange, icon }) {
   return (
     <div className="settings-field">
-
       <label>{label}</label>
 
       <div className="settings-input-wrapper">
-
         {icon}
 
-        <input
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
-
+        <input name={name} value={value} onChange={onChange} />
       </div>
-
     </div>
   );
 }
 
-
-function Toggle({
-  enabled,
-  onClick,
-}) {
+function Toggle({ enabled, onClick }) {
   return (
     <button
-      className={`settings-toggle ${
-        enabled ? "enabled" : ""
-      }`}
+      className={`settings-toggle ${enabled ? "enabled" : ""}`}
       onClick={onClick}
       aria-label="Toggle setting"
     >
@@ -1538,26 +1242,15 @@ function Toggle({
   );
 }
 
-
-function ConnectedAccount({
-  name,
-  description,
-  icon,
-  connected = false,
-}) {
+function ConnectedAccount({ name, description, icon, connected = false }) {
   return (
     <div className="connected-account">
-
-      <div className="connected-account-icon">
-        {icon}
-      </div>
+      <div className="connected-account-icon">{icon}</div>
 
       <div className="connected-account-info">
-
         <h3>{name}</h3>
 
         <p>{description}</p>
-
       </div>
 
       {connected ? (
@@ -1566,31 +1259,20 @@ function ConnectedAccount({
           Connected
         </button>
       ) : (
-        <button className="settings-outline-btn">
-          Connect
-        </button>
+        <button className="settings-outline-btn">Connect</button>
       )}
-
     </div>
   );
 }
 
-
-function GamingAccount({
-  game,
-  username,
-  rank,
-  connected = false,
-}) {
+function GamingAccount({ game, username, rank, connected = false }) {
   return (
     <div className="gaming-account">
-
       <div className="gaming-account-icon">
-        <FiGamepad />
+        <FiMonitor />
       </div>
 
       <div className="gaming-account-info">
-
         <h3>{game}</h3>
 
         {connected ? (
@@ -1598,11 +1280,8 @@ function GamingAccount({
             {username} • {rank}
           </p>
         ) : (
-          <p>
-            Connect your {game} profile
-          </p>
+          <p>Connect your {game} profile</p>
         )}
-
       </div>
 
       {connected ? (
@@ -1611,58 +1290,30 @@ function GamingAccount({
           Connected
         </span>
       ) : (
-        <button className="settings-outline-btn">
-          Connect
-        </button>
+        <button className="settings-outline-btn">Connect</button>
       )}
-
     </div>
   );
 }
 
-
-function DeviceCard({
-  device,
-  location,
-  time,
-  current = false,
-  icon,
-}) {
+function DeviceCard({ device, location, time, current = false, icon }) {
   return (
     <div className="device-card">
-
-      <div className="device-icon">
-        {icon}
-      </div>
+      <div className="device-icon">{icon}</div>
 
       <div className="device-info">
-
         <h3>
           {device}
 
-          {current && (
-            <span className="current-device">
-              This device
-            </span>
-          )}
+          {current && <span className="current-device">This device</span>}
         </h3>
 
-        <p>
-          {location}
-        </p>
+        <p>{location}</p>
 
-        <small>
-          {time}
-        </small>
-
+        <small>{time}</small>
       </div>
 
-      {!current && (
-        <button className="device-remove">
-          Log Out
-        </button>
-      )}
-
+      {!current && <button className="device-remove">Log Out</button>}
     </div>
   );
 }
